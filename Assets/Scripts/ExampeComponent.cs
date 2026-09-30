@@ -8,13 +8,20 @@ public class ExampeComponent : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
+
     void FixedUpdate()
     {
         rb.AddForce(Vector3.forward *
         forceAmount);
     }
+
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision with: " + collision.gameObject.name);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Entered trigger: " + other.gameObject.name);
     }
 }
